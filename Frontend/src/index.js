@@ -4,6 +4,7 @@ import App from "./components/App";
 import "./style/header.css";
 import "./style/index.css";
 import "./style/banner.css";
+import "./style/description.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

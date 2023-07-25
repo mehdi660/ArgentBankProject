@@ -1,0 +1,25 @@
+.description-ctnr {
+    display: flex;
+    justify-content: center;
+}
+
+.description-card {
+    text-align: center;
+    padding: 10px;
+    width: 33%;
+}
+
+.description-card img {
+    width: 100px;
+    height: 100px;
+    border: 5px solid #28af55aa;
+    border-radius: 50%;
+}
+
+.description-card h3 {
+    font-size: 17px;
+}
+
+.description-card p {
+    font-size: 14px;
+}
