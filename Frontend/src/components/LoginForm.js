@@ -16,7 +16,7 @@ const LoginForm = () => {
               <input type="email" id="email" size="30" required />
               <label htmlFor="password">Mot de passe :</label>
               <input type="password" id="password" name="password" required />
-              <div className="checbox">
+              <div className="checkbox">
                 <input type="checkbox" id="checkbox" name="checkbox" />
                 <label htmlFor="checkbox">Souviens-toi de moi</label>
               </div>

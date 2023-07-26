@@ -1,24 +1,22 @@
 .banner {
-    position: relative;
+    position: relative
 }
-
 
 .banner-img {
     object-fit: cover;
     width: 100%;
-    height: 400px;
-    /* margin-top: -60px; */
+    height: 400px
 }
 
 .text-bnr {
-    background-color: rgb(231, 251, 232);
+    background-color: #e7fbe8;
     width: 100%;
     height: 100%;
-    padding: 25px;
+    padding: 25px
 }
 
 .text-bnr-container {
     right: 100px;
     top: 70px;
-    position: absolute;
+    position: absolute
 }

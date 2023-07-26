@@ -1,0 +1,20 @@
+.error-page {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-page p {
+    color: rgb(24, 169, 28);
+}
+
+.error-page h4 {
+    font-size: 50px;
+    font-weight: 800;
+    color: rgb(24, 169, 28);
+    margin: 0;
+
+}

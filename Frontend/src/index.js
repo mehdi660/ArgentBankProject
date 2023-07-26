@@ -7,6 +7,7 @@ import "./style/banner.css";
 import "./style/description.css";
 import "./style/footer.css";
 import "./style/loginForm.css";
+import "./style/error.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

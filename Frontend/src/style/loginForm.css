@@ -1,70 +1,71 @@
-/* styles.css */
 .login {
-    background: url("../assets/img/money-g2a0dcce2e_1280.jpg") center/cover;
-    height: 100vh;
+    background: url(../assets/img/money-g2a0dcce2e_1280.jpg) center/cover;
+    height: 100vh
 }
 
 .blur-container {
     backdrop-filter: blur(10px);
-    height: 100%;
+    height: 100%
 }
 
 .modal-form img {
     width: 30px;
-    height: 30px;
+    height: 30px
 }
 
 .modal-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center
 }
 
 .modal-form form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
+    justify-content: center
 }
 
 .form-ctnr {
     margin-top: 150px;
     align-items: center;
-    background-color: rgba(240, 248, 255, 0.378);
+    background-color: rgba(240, 248, 255, .378);
     text-align: center;
     width: 300px;
     height: 350px;
     padding-top: 50px;
     border-radius: 10px;
-    box-shadow: 10px 5px 5px #1e19191f;
+    box-shadow: 10px 5px 5px #1e19191f
 }
-
 
 #email,
 #password {
     width: 200px;
     height: 20px;
     margin-bottom: 15px;
-    background-color: #E8F0FE;
-    border: 1px solid black;
-    border-radius: 5px;
+    background-color: #e8f0fe;
+    border: 1px solid #000;
+    border-radius: 5px
+}
+
+.login input[type=submit] {
+    font-family: oswald, sans-serif
 }
 
 #submit {
     margin-top: 20px;
-    border: 1px solid black;
+    border: 1px solid #000;
     width: 150px;
     text-align: center;
     height: 30px;
-    background-color: #00BC77;
+    background-color: #00bc77;
     cursor: pointer;
     border-radius: 5px;
     font-family: Oswald, sans-serif;
-    transition: 0.3s ease-in-out;
+    transition: .3s ease-in-out
 }
 
 #submit:hover {
     background-color: #00bc7744;
-    transform: scale(1.05);
+    transform: scale(1.05)
 }
