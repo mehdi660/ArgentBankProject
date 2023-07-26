@@ -13,7 +13,7 @@ const Header = () => {
       </div>
       <div className="navigation">
         <ul>
-          <NavLink to="/profile">
+          <NavLink to="/login">
             <img src={sign} alt="sign in" />
             <li className="nav-active">S'identifier</li>
           </NavLink>

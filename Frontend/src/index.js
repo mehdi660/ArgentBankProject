@@ -5,6 +5,8 @@ import "./style/header.css";
 import "./style/index.css";
 import "./style/banner.css";
 import "./style/description.css";
+import "./style/footer.css";
+import "./style/loginForm.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
