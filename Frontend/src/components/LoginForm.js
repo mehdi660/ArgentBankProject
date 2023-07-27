@@ -1,8 +1,18 @@
 // LoginForm.js
-import React from "react";
+import React, { useEffect, axios } from "react";
 import sign from "../assets/img/icons8-nom-24.png";
+import { useDispatch } from "react-redux";
+import { setSignInData } from "../feature/user.slice";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    axios
+      .post("http://localhost:3001/api/v1/user/login")
+      .then((res) => dispatch(setSignInData(res.data)));
+  }, []);
+
   return (
     <main className="login">
       <div className="blur-container">
