@@ -29,8 +29,6 @@
 
 }
 
-
-
 .navigation li {
     color: #223b1c;
     list-style: none;
@@ -41,4 +39,16 @@
 
 .profile {
     display: flex;
+}
+
+@media all and (max-width: 800px) {
+    .navigation li {
+        font-weight: 300;
+        font-size: 15px;
+    }
+
+    .navigation img {
+        width: 20px;
+        height: 20px;
+    }
 }
