@@ -15,7 +15,7 @@ const Header = () => {
         <ul>
           <NavLink to="/login">
             <img src={sign} alt="sign in" />
-            <li className="nav-active">S'identifier</li>
+            <li className="nav-active">S'identifier/Créer un compte</li>
           </NavLink>
         </ul>
       </div>

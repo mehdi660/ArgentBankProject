@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import signInReducer from "../feature/user.slice";
+import signInReducer from "../feature/SignIn";
 
 export default configureStore({
   reducer: {
