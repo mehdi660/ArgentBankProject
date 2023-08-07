@@ -6,7 +6,7 @@ const SignUp = () => {
       <div className="blur-container">
         {" "}
         <section className="modal-form">
-          <div className="form-ctnr">
+          <div id="signup-container" className="form-ctnr">
             <h3>Créer un compte</h3>
             <form action="">
               <label htmlFor="email">Email: </label>

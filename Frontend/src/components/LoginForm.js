@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import sign from "../assets/img/icons8-nom-24.png";
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux/es/hooks/useSelector";
 
 const LoginForm = () => {
+  // const login = useSelector((setSignInData) => setSignInData);
+
   return (
     <main className="login">
       <div className="blur-container">
@@ -30,6 +33,7 @@ const LoginForm = () => {
                 <label htmlFor="checkbox">Souviens-toi de moi</label>
               </div>
               <input
+                id="submit-form"
                 className="submit"
                 type="submit"
                 value="S'identifier"

@@ -26,7 +26,7 @@ const apiAction = {
   },
 };
 // fonction pour gerer les appel a l'api avec l'action donnée
-export const performApiAction = async (action, token, data = {}) => {
+export const ApiAction = async (action, token, data = {}) => {
   const actionConfig = apiAction[action];
 
   if (!actionConfig) {
