@@ -1,10 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import sign from "../assets/img/icons8-nom-24.png";
-import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux/es/hooks/useSelector";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setSignInData } from "../feature/SignIn";
+import { makeApiRequest } from "../service/callApi.js";
 
 const LoginForm = () => {
-  // const login = useSelector((setSignInData) => setSignInData);
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleCheckbox = () => {
+    setCheckbox(!checkbox);
+  };
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await makeApiRequest("login", null, {
+        email: username,
+        password,
+      });
+      dispatch(setSignInData({ response }));
+      navigate("/user");
+    } catch (error) {
+      console.error("Error during sign-in:", error);
+    }
+  };
 
   return (
     <main className="login">
@@ -29,7 +54,13 @@ const LoginForm = () => {
                 required
               />
               <div className="checkbox">
-                <input type="checkbox" className="checkbox" name="checkbox" />
+                <input
+                  checked={checkbox}
+                  onChange={handleCheckbox}
+                  type="checkbox"
+                  className="checkbox"
+                  name="checkbox"
+                />
                 <label htmlFor="checkbox">Souviens-toi de moi</label>
               </div>
               <input

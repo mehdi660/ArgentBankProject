@@ -1,58 +1,55 @@
-import axios from "axios";
+const API_URL = "http://localhost:3001/api/v1";
 
-const BaseUrl = "http://localhost:3001/api/v1";
-
-// Toute les actions de l'api
-const apiAction = {
+const apiEndpoints = {
   login: {
-    method: "post",
-    url: "/user/login",
+    method: "POST",
+    path: "/user/login",
     requiresAuth: false,
   },
   getProfile: {
-    method: "post",
-    url: "/user/profile",
+    method: "POST",
+    path: "/user/profile",
     requiresAuth: true,
   },
   editUser: {
-    method: "put",
-    url: "/user/profile",
+    method: "PUT",
+    path: "/user/profile",
     requiresAuth: true,
   },
   signUp: {
-    method: "post",
-    url: "/user/signup",
+    method: "POST",
+    path: "/user/signup",
     requiresAuth: false,
   },
 };
-// fonction pour gerer les appel a l'api avec l'action donnée
-export const ApiAction = async (action, token, data = {}) => {
-  const actionConfig = apiAction[action];
 
-  if (!actionConfig) {
-    console.error("Action non prise en charge.");
+export const makeApiRequest = async (action, token, data = {}) => {
+  const { method, path, requiresAuth } = apiEndpoints[action];
+
+  const headers = { "Content-Type": "application/json" };
+
+  if (!method || !path) {
+    console.error("Endpoint not supported.");
     return;
   }
 
-  const headers = {
-    "Content-Type": "application/json",
-  };
-
-  if (actionConfig.requiresAuth) {
+  if (requiresAuth) {
     headers.Authorization = `Bearer ${token}`;
   }
 
+  const url = `${API_URL}${path}`;
+
   try {
-    const response = await axios({
-      method: actionConfig.method,
-      url: `${BaseUrl}${actionConfig.url}`,
-      data,
+    const response = await fetch(url, {
+      method,
       headers,
+      body: JSON.stringify(data),
     });
 
-    return response.data;
+    const responseData = await response.json();
+    return responseData;
   } catch (error) {
-    console.error("Erreur lors de l'exécution de l'action :", error);
+    console.error("Error to executing the action:", error);
     throw error;
   }
 };
