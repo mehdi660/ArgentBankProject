@@ -39,20 +39,30 @@ const LoginForm = () => {
           <div className="form-ctnr">
             <img src={sign} alt="sign in" />
             <h3>S'identifier</h3>
-            <form action="">
+            <form onSubmit={handleSignIn}>
               <label className="center-left" htmlFor="email">
                 Nom d'utilisateur (email) :
               </label>
-              <input type="email" className="email" size="30" required />
+              <input
+                value={username}
+                type="email"
+                className="email"
+                size="30"
+                required
+                onChange={({ target }) => setUserName(target.value)}
+              />
               <label className="centerLeft" htmlFor="password">
                 Mot de passe :
               </label>
               <input
+                value={password}
                 type="password"
                 className="password"
                 name="password"
                 required
+                onChange={({ target }) => setPassword(target.value)}
               />
+
               <div className="checkbox">
                 <input
                   checked={checkbox}
