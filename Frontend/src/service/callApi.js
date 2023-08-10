@@ -46,8 +46,7 @@ export const makeApiRequest = async (action, token, data = {}) => {
       body: JSON.stringify(data),
     });
 
-    const responseData = await response.json();
-    return responseData;
+    return response.json(); // Ne pas analyser la réponse ici, renvoyer simplement la réponse
   } catch (error) {
     console.error("Error to executing the action:", error);
     throw error;

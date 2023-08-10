@@ -24,8 +24,16 @@ const LoginForm = () => {
         email: username,
         password,
       });
-      dispatch(setSignInData({ response }));
-      navigate("/user");
+
+      if (response.body.token) {
+        localStorage.setItem("token", response.body.token);
+        console.log("Connexion réussie ! Token:", response.body.token);
+
+        dispatch(setSignInData({ response }));
+        navigate("/profile");
+      } else {
+        console.error("Error during sign-in:", response.error);
+      }
     } catch (error) {
       console.error("Error during sign-in:", error);
     }
