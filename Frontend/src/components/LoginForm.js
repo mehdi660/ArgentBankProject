@@ -28,7 +28,6 @@ const LoginForm = () => {
       if (response.body.token) {
         localStorage.setItem("token", response.body.token);
         console.log("Connexion réussie ! Token:", response.body.token);
-
         dispatch(setSignInData({ response }));
         navigate("/profile");
       } else {
@@ -52,6 +51,7 @@ const LoginForm = () => {
                 Nom d'utilisateur (email) :
               </label>
               <input
+                autoComplete="username"
                 value={username}
                 type="email"
                 className="email"
@@ -63,6 +63,7 @@ const LoginForm = () => {
                 Mot de passe :
               </label>
               <input
+                autoComplete="password"
                 value={password}
                 type="password"
                 className="password"

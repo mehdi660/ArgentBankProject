@@ -1,9 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../assets/img/argentBankLogo.png";
 import sign from "../assets/img/icons8-nom-24.png";
 
 const Header = () => {
+  const location = useLocation(); // Obtenir l'emplacement actuel
+
   return (
     <header className="conteneur-hdr">
       <div className="logo">
@@ -15,7 +17,13 @@ const Header = () => {
         <ul>
           <NavLink to="/login">
             <img src={sign} alt="sign in" />
-            <li className="nav-active">S'identifier/Créer un compte</li>
+            <li
+              className={location.pathname === "/profile" ? "nav-active" : ""}
+            >
+              {location.pathname === "/profile"
+                ? "Se déconnecter"
+                : "S'identifier/Créer un compte"}
+            </li>
           </NavLink>
         </ul>
       </div>
