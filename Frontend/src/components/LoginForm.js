@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import sign from "../assets/img/icons8-nom-24.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -9,11 +9,24 @@ const LoginForm = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Chargement du state de la checkbox dans le localstorage
+    const savedCheckbox = localStorage.getItem("rememberMe");
+    if (savedCheckbox) {
+      setCheckbox(JSON.parse(savedCheckbox));
+    }
+  }, []);
+
   const handleCheckbox = () => {
-    setCheckbox(!checkbox);
+    const newCheckboxState = !checkbox;
+    setCheckbox(newCheckboxState);
+
+    // Sauvegarde du state de la checkbox dans le localstorage
+    localStorage.setItem("rememberMe", JSON.stringify(newCheckboxState));
   };
 
   const handleSignIn = async (e) => {
@@ -31,10 +44,11 @@ const LoginForm = () => {
         dispatch(setSignInData({ response }));
         navigate("/profile");
       } else {
-        console.error("Error during sign-in:", response.error);
+        setErrorMessage("Nom d'utilisateur ou mot de passe incorrect."); // Set error message
       }
     } catch (error) {
       console.error("Error during sign-in:", error);
+      setErrorMessage("Une erreur s'est produite lors de la connexion."); // Set error message
     }
   };
 
@@ -96,6 +110,7 @@ const LoginForm = () => {
                 ></input>
               </NavLink>
             </form>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
           </div>
         </section>
       </div>

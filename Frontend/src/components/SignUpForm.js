@@ -42,7 +42,7 @@ const SignUp = () => {
     if (Object.values(checks).every((check) => check)) {
       console.log("Tout est bon !");
       try {
-        await makeApiRequest("signup", null, formValues);
+        await makeApiRequest("signUp", null, formValues);
         navigate("/profile");
       } catch (error) {
         console.error("Error during sign-up:", error);
