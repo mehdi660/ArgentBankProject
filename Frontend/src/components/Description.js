@@ -7,11 +7,7 @@ const Description = () => {
     <div className="description-ctnr">
       {data.map(({ image, title, description, id }) => (
         <div className="description-card" key={id}>
-          {typeof image === "string" ? (
-            <img src={image} alt={title} />
-          ) : (
-            <LottieAnim /> // Utilisation du composant LottieAnimation
-          )}
+          <LottieAnim />
           <h3>{title}</h3>
           <p>{description}</p>
         </div>

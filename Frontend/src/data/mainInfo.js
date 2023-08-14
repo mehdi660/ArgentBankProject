@@ -6,7 +6,7 @@ import security from "../assets/img/icon-security.png";
 const data = [
   {
     id: 1,
-    image: <LottieAnim />, // Utilisation du composant LottieAnimation
+    image: <LottieAnim />,
     title: "Vous êtes notre priorité #1",
     description:
       "Besoin de parler à un représentant? Vous pouvez entrer en contact via notre chat 24/7 ou via un appel téléphonique en moins de 5 minutes.",

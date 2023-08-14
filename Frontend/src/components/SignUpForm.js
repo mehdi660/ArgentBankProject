@@ -11,18 +11,18 @@ const SignUp = () => {
     password: "",
     firstName: "",
     lastName: "",
-    username: "",
+    userName: "",
   });
 
   const isEmailValid = formValues.email.includes("@");
-  const isUsernameValid = /^[A-Za-z]+$/.test(formValues.username);
+  const isUsernameValid = /^[A-Za-z]+$/.test(formValues.userName);
 
   const checks = {
     email: formValues.email.length >= 3 && isEmailValid,
     password: formValues.password.length >= 6,
     firstName: formValues.firstName.length >= 2,
     lastName: formValues.lastName.length >= 2,
-    username: formValues.username.length >= 5 && isUsernameValid,
+    userName: formValues.userName.length >= 5 && isUsernameValid,
   };
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -100,16 +100,16 @@ const SignUp = () => {
                 <p>Le nom de famille doit contenir au minimum 2 caractéres</p>
               )}
 
-              <label htmlFor="username">Username: </label>
+              <label htmlFor="userName">Username: </label>
               <input
-                value={formValues.username}
+                value={formValues.userName}
                 type="text"
-                name="username"
+                name="userName"
                 className="username"
                 size="30"
                 onChange={handleChange}
               />
-              {!checks.username && errorMessage && (
+              {!checks.userName && errorMessage && (
                 <p>L'username doit contenir au minimum 5 caractéres</p>
               )}
 
