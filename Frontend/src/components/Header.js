@@ -6,6 +6,12 @@ import sign from "../assets/img/icons8-nom-24.png";
 const Header = () => {
   const location = useLocation(); // Obtenir l'emplacement actuel
 
+  const handleLogout = () => {
+    if (location.pathname === "/profile") {
+      localStorage.removeItem("token");
+      console.log("token removed !");
+    }
+  };
   return (
     <header className="conteneur-hdr">
       <div className="logo">
@@ -15,7 +21,7 @@ const Header = () => {
       </div>
       <div className="navigation">
         <ul>
-          <NavLink to="/login">
+          <NavLink to="/login" onClick={handleLogout}>
             <img src={sign} alt="sign in" />
             <li
               className={location.pathname === "/profile" ? "nav-active" : ""}
