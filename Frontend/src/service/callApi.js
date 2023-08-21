@@ -11,7 +11,7 @@ const apiEndpoints = {
     path: "/user/profile",
     requiresAuth: true,
   },
-  editUserName: {
+  modifyUserName: {
     method: "PUT",
     path: "/user/profile",
     requiresAuth: true,
