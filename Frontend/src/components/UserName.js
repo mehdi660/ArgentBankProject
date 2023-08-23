@@ -13,6 +13,9 @@ const UserName = ({ onSubmit }) => {
 
   const [editUserName, setEdittUserName] = useState(userData.userName);
 
+  const [confirmationMessage, setConfirmationMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+
   // const getProfile = async () => {
   //   try {
   //     await makeApiRequest("getProfile", token, {});
@@ -23,44 +26,59 @@ const UserName = ({ onSubmit }) => {
   // };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUserData = async () => {
       try {
         const data = await makeApiRequest("getProfile", token, {});
-
         dispatch(setProfileData({ data }));
       } catch (error) {
         console.log(error, "error");
       }
     };
-    fetchData();
+    fetchUserData();
   }, []);
 
   const changeUserName = async (e) => {
     e.preventDefault();
 
-    try {
-      await makeApiRequest("modifyUserName", token, { userName: editUserName });
-      dispatch(setEditUserName({ editUserName }));
-    } catch (error) {
-      console.log(error);
+    // Vérifiez si l'username a au moins 5 lettres et ne contient aucun caractère spécial
+    if (/^[a-zA-Z]{5,}$/.test(editUserName)) {
+      try {
+        await makeApiRequest("modifyUserName", token, {
+          userName: editUserName,
+        });
+        dispatch(setEditUserName({ editUserName }));
+
+        // Mettre à jour le message de confirmation en vert
+        setConfirmationMessage("Username modifié avec succès !");
+        setIsError(false); // Aucune erreur
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      // Mettre à jour le message d'erreur en rouge
+      setConfirmationMessage(
+        "L'username doit comporter au moins 5 lettres et ne doit pas contenir de caractères spéciaux!"
+      );
+      setIsError(true); // Il y a une erreur
     }
   };
 
   return (
     <>
       <Header />
-      <form onSubmit={changeUserName}>
-        <div className="form-edit">
-          <label htmlFor="userName">Username</label>
+      <form onSubmit={changeUserName} className="edit-form">
+        <div className="edit-formt-ctnr">
+          <label htmlFor="userName">Username :</label>
           <input
             type="text"
             id="userName"
-            defaultValue={editUserName}
+            defaultValue={userData.userName}
             onChange={(e) => setEdittUserName(e.target.value)}
+            style={{ border: isError ? "1px solid red" : "1px solid #29b99a" }}
           />
         </div>
-        <div className="form-edit">
-          <label htmlFor="firstName">Prénom</label>
+        <div className="edit-formt-ctnr">
+          <label htmlFor="firstName">Prénom :</label>
           <input
             type="text"
             id="firstName"
@@ -68,8 +86,8 @@ const UserName = ({ onSubmit }) => {
             readOnly
           />
         </div>
-        <div className="form-edit">
-          <label htmlFor="lastName">Nom de famille</label>
+        <div className="edit-formt-ctnr">
+          <label htmlFor="lastName">Nom de famille :</label>
           <input
             type="text"
             id="lastName"
@@ -77,7 +95,12 @@ const UserName = ({ onSubmit }) => {
             readOnly
           />
         </div>
-        <button type="submit">Modifier</button>
+        <button id="submit-btn" type="submit">
+          Modifier
+        </button>
+        <p style={{ color: isError ? "red" : "green" }}>
+          {confirmationMessage}
+        </p>
       </form>
     </>
   );
