@@ -5,24 +5,34 @@ import sign from "../assets/img/icons8-nom-24.png";
 
 const Header = () => {
   const location = useLocation(); // Obtenir l'emplacement actuel
+  const token = localStorage.getItem("token");
 
   const handleLogout = () => {
-    if (location.pathname === "/profile") {
+    if (token) {
+      <NavLink to={"/"} />;
       localStorage.removeItem("token");
       console.log("token removed !");
     }
   };
+
+  const handleAlert = () => {
+    if (token) {
+      localStorage.removeItem("token");
+      alert("attention, revenir à la page d'acceuil vous déconnectera");
+    }
+  };
+
   return (
     <header className="conteneur-hdr">
       <div className="logo">
-        <NavLink to="/">
+        <NavLink to="/" onClick={handleAlert}>
           <img src={Logo} alt="ArgentBank logo" />
         </NavLink>
       </div>
       <div className="navigation">
         <ul>
           <NavLink to="/login" onClick={handleLogout}>
-            <img src={sign} alt="sign in" />
+            <img src={sign} alt="sign in / sign out" />
             <li
               className={location.pathname === "/profile" ? "nav-active" : ""}
             >

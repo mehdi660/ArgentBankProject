@@ -16,15 +16,6 @@ const UserName = ({ onSubmit }) => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  // const getProfile = async () => {
-  //   try {
-  //     await makeApiRequest("getProfile", token, {});
-  //     // dispatch(setProfileData({ data }));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   useEffect(() => {
     const fetchUserData = async () => {
       try {
