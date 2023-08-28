@@ -25,11 +25,14 @@ const Profile = () => {
   }, []);
 
   return (
-    <main>
+    <>
       <Header />
-      <h2>Bonjour, {userData.userName}</h2>
-      <Footer />
-    </main>
+      <main id="main-profile">
+        <h2 id="greeting">Bonjour, {userData.userName} 👋</h2>
+        <UserName />
+        <Footer />
+      </main>
+    </>
   );
 };
 

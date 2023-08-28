@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setEditUserName } from "../feature/Profile";
@@ -16,6 +15,8 @@ const UserName = ({ onSubmit }) => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
+  //  ? Fonction getprofile pour récuperer les infos de l'utisateur
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -27,6 +28,8 @@ const UserName = ({ onSubmit }) => {
     };
     fetchUserData();
   }, []);
+
+  //  ? Fonction pour edit l'username
 
   const changeUserName = async (e) => {
     e.preventDefault();
@@ -56,7 +59,7 @@ const UserName = ({ onSubmit }) => {
 
   return (
     <>
-      <Header />
+      <h2 id="user-info">Informations utilisateur : </h2>
       <form onSubmit={changeUserName} className="edit-form">
         <div className="edit-formt-ctnr">
           <label htmlFor="userName">Username :</label>
@@ -87,7 +90,7 @@ const UserName = ({ onSubmit }) => {
           />
         </div>
         <button id="submit-btn" type="submit">
-          Modifier
+          Modifier l'username
         </button>
         <p style={{ color: isError ? "red" : "green" }}>
           {confirmationMessage}

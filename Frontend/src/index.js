@@ -9,6 +9,7 @@ import "./style/footer.css";
 import "./style/loginForm.css";
 import "./style/error.css";
 import "./style/editName.css";
+import "./style/profile.css";
 import { Provider } from "react-redux";
 import store from "./app/store";
 
