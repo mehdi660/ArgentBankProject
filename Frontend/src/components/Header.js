@@ -46,10 +46,14 @@ const Header = () => {
       <div className="navigation">
         <ul>
           {isConnected ? (
-            <li className="nav-active">
+            <li className="nav-log">
               <img src={sign} alt="sign in / sign out" />
-              <Link to="/profile">{dataUser.userName}</Link>
-              <button onClick={handleLogout}>Déconnexion</button>
+              <Link className="nav-active" to="/profile">
+                {dataUser.userName}
+              </Link>
+              <button className="signout" onClick={handleLogout}>
+                Déconnexion
+              </button>
             </li>
           ) : (
             <li className="nav-active">

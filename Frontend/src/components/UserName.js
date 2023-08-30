@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setEditUserName } from "../feature/Profile";
 import { setProfileData } from "../feature/Profile";
@@ -15,7 +14,16 @@ const UserName = ({ onSubmit }) => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  //  ? Fonction getprofile pour récuperer les infos de l'utisateur
+  // Fonction pour gérer la durée d'affichage du message de confirmation
+  const displayConfirmationMessage = (message, isError) => {
+    setConfirmationMessage(message);
+    setIsError(isError);
+    // Effacer le message apres 5 seconde
+    setTimeout(() => {
+      setConfirmationMessage("");
+      setIsError(false);
+    }, 5000);
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -29,12 +37,9 @@ const UserName = ({ onSubmit }) => {
     fetchUserData();
   }, []);
 
-  //  ? Fonction pour edit l'username
-
   const changeUserName = async (e) => {
     e.preventDefault();
 
-    // Vérifiez si l'username a au moins 5 lettres et ne contient aucun caractère spécial
     if (/^[a-zA-Z]{5,}$/.test(editUserName)) {
       try {
         await makeApiRequest("modifyUserName", token, {
@@ -42,18 +47,22 @@ const UserName = ({ onSubmit }) => {
         });
         dispatch(setEditUserName({ editUserName }));
 
-        // Mettre à jour le message de confirmation en vert
-        setConfirmationMessage("Username modifié avec succès !");
-        setIsError(false); // Aucune erreur
+        // Utilisez la fonction pour afficher le message de confirmation
+        displayConfirmationMessage("Username modifié avec succès !", false);
       } catch (error) {
+        // Utilisez la fonction pour afficher le message d'erreur
+        displayConfirmationMessage(
+          "Une erreur s'est produite lors de la modification de l'username.",
+          true
+        );
         console.log(error);
       }
     } else {
-      // Mettre à jour le message d'erreur en rouge
-      setConfirmationMessage(
-        "L'username doit comporter au moins 5 lettres et ne doit pas contenir de caractères spéciaux!"
+      // Utilisez la fonction pour afficher le message d'erreur
+      displayConfirmationMessage(
+        "L'username doit comporter au moins 5 lettres et ne doit pas contenir de caractères spéciaux!",
+        true
       );
-      setIsError(true); // Il y a une erreur
     }
   };
 
