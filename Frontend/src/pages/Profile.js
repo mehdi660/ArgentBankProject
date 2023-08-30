@@ -1,7 +1,7 @@
 import React from "react";
 import UserName from "../components/UserName";
 import { setProfileData } from "../feature/Profile";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import Footer from "../components/Footer";

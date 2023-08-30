@@ -1,46 +1,64 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Logo from "../assets/img/argentBankLogo.png";
 import sign from "../assets/img/icons8-nom-24.png";
+import { makeApiRequest } from "../service/callApi";
 
 const Header = () => {
-  const location = useLocation(); // Obtenir l'emplacement actuel
   const token = localStorage.getItem("token");
+  const isConnected = token;
+  const dataUser = useSelector((state) => state.profile);
+  const [userData, setUserData] = useState({}); // state pour stocker les données de l'utilisateur
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // verification si l'user est connecté
+        if (isConnected) {
+          const data = await makeApiRequest("getProfile", token, {});
+          setUserData(data.body); // Stockage des données dans le state
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [isConnected, token]);
 
   const handleLogout = () => {
-    if (token) {
-      <NavLink to={"/"} />;
+    if (isConnected) {
       localStorage.removeItem("token");
-      console.log("token removed !");
-    }
-  };
-
-  const handleAlert = () => {
-    if (token) {
-      localStorage.removeItem("token");
-      alert("attention, revenir à la page d'acceuil vous déconnectera");
+      console.log("Token removed!");
+      // Rediriger l'user vers la page d'accueil
+      window.location.href = "/login";
     }
   };
 
   return (
     <header className="conteneur-hdr">
       <div className="logo">
-        <NavLink to="/" onClick={handleAlert}>
+        <Link to="/">
           <img src={Logo} alt="ArgentBank logo" />
-        </NavLink>
+        </Link>
       </div>
       <div className="navigation">
         <ul>
-          <NavLink to="/login" onClick={handleLogout}>
-            <img src={sign} alt="sign in / sign out" />
-            <li
-              className={location.pathname === "/profile" ? "nav-active" : ""}
-            >
-              {location.pathname === "/profile"
-                ? "Se déconnecter"
-                : "S'identifier/Créer un compte"}
+          {isConnected ? (
+            <li className="nav-active">
+              <img src={sign} alt="sign in / sign out" />
+              <Link to="/profile">{dataUser.userName}</Link>
+              <button onClick={handleLogout}>Déconnexion</button>
             </li>
-          </NavLink>
+          ) : (
+            <li className="nav-active">
+              <Link to="/login" onClick={handleLogout}>
+                <img src={sign} alt="sign in / sign out" />
+                S'identifier/Créer un compte
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </header>

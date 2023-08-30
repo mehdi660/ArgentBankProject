@@ -1,54 +1,54 @@
 .logo img {
-    width: 70%;
+  width: 70%;
 }
 
 .conteneur-hdr {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navigation ul {
-    display: flex;
-    margin: 30px;
-    justify-content: flex-end;
-    margin: 0;
+  display: flex;
+  margin: 30px;
+  justify-content: flex-end;
+  margin: 0;
 }
 
 .navigation a {
-    text-decoration: none;
-    display: flex;
-    padding-right: 20px;
-    padding-bottom: 15px;
-    justify-content: space-between;
+  text-decoration: none;
+  display: flex;
+  color: black;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  justify-content: space-between;
 }
 
 .nav-active:hover {
-    color: rgb(62, 169, 26);
-    border-bottom: 1px solid rgb(62, 169, 26);
-
+  color: rgb(62, 169, 26);
+  border-bottom: 1px solid rgb(62, 169, 26);
 }
 
 .navigation li {
-    color: #223b1c;
-    list-style: none;
-    transition: 0.2s;
-    font-weight: 300;
-    font-size: 20px;
+  color: #223b1c;
+  list-style: none;
+  transition: 0.2s;
+  font-weight: 300;
+  font-size: 20px;
 }
 
 .profile {
-    display: flex;
+  display: flex;
 }
 
 @media all and (max-width: 800px) {
-    .navigation li {
-        font-weight: 300;
-        font-size: 15px;
-    }
+  .navigation li {
+    font-weight: 300;
+    font-size: 15px;
+  }
 
-    .navigation img {
-        width: 20px;
-        height: 20px;
-    }
+  .navigation img {
+    width: 20px;
+    height: 20px;
+  }
 }
