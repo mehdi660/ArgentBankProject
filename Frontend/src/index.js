@@ -12,6 +12,7 @@ import "./style/editName.css";
 import "./style/profile.css";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import "./style/account.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

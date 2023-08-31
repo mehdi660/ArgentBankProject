@@ -6,9 +6,7 @@ import Profile from "../pages/Profile";
 import Error from "../pages/Error";
 import SignUp from "../pages/SignUp";
 
-const route = () => {
-  const token = localStorage.getItem("token");
-
+const Router = () => {
   return (
     <div>
       <BrowserRouter>
@@ -16,13 +14,8 @@ const route = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          {token ? (
-            <>
-              <Route path="/profile" element={<Profile />} />
-            </>
-          ) : (
-            <Route path="/profile" element={<Navigate to="/error" />} />
-          )}
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<Navigate to="/error" />} />
           <Route path="/error" element={<Error />} />
         </Routes>
       </BrowserRouter>
@@ -30,4 +23,4 @@ const route = () => {
   );
 };
 
-export default route;
+export default Router;

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { makeApiRequest } from "../service/callApi";
+import Account from "../components/Account";
 
 const Profile = () => {
   const userData = useSelector((state) => state.profile);
@@ -30,8 +31,30 @@ const Profile = () => {
       <main id="main-profile">
         <h2 id="greeting">Bonjour, {userData.userName} 👋</h2>
         <UserName />
-        <Footer />
+
+        <Account
+          state={{
+            account: "Compte argent bank (x5685)",
+            balance: "12,052.20€",
+            available: "Argent disponible",
+          }}
+        />
+        <Account
+          state={{
+            account: "Compte argent bank (x6879)",
+            balance: "65,125.36€",
+            available: "Argent disponible",
+          }}
+        />
+        <Account
+          state={{
+            account: "Compte argent bank (x7862)",
+            balance: "47,698.94€",
+            available: "Argent disponible",
+          }}
+        />
       </main>
+      <Footer />
     </>
   );
 };

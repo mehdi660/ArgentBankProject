@@ -1,0 +1,38 @@
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-ctnr {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 40%;
+  background-color: rgb(59, 55, 55);
+  margin-bottom: 20px;
+  padding-left: 30px;
+  border-radius: 15px;
+  color: rgb(253, 241, 241);
+}
+
+.account-title {
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.account-balance {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.account-available {
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.transaction {
+  width: 80px;
+  height: 50px;
+}
