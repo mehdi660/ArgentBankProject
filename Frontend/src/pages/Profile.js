@@ -33,21 +33,21 @@ const Profile = () => {
         <UserName />
 
         <Account
-          state={{
+          info={{
             account: "Compte argent bank (x5685)",
             balance: "12,052.20€",
             available: "Argent disponible",
           }}
         />
         <Account
-          state={{
+          info={{
             account: "Compte argent bank (x6879)",
             balance: "65,125.36€",
             available: "Argent disponible",
           }}
         />
         <Account
-          state={{
+          info={{
             account: "Compte argent bank (x7862)",
             balance: "47,698.94€",
             available: "Argent disponible",
