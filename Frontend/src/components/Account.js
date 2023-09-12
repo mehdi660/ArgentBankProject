@@ -53,8 +53,22 @@ const Account = ({ info }) => {
                 </td>
               </tr>
               {isCategoryEditVisible && (
+                <div className="edit-transaction">
+                  <h4>Type de transaction</h4>
+                  <h4>Catégorie</h4>
+                  <h4>Note</h4>
+                </div>
+              )}
+              <tr>
+                <td>26/09/2021</td>
+                <td>Gallerie Lafayette</td>
+                <td>18€</td>
+                <td>350€</td>
+                <td className="details-td"></td>
+              </tr>
+              {isCategoryEditVisible && (
                 <tr>
-                  <td colSpan="5">
+                  <td colSpan="4">
                     {/* Formulaire de modification de la catégorie */}
                     <input type="text" placeholder="Nouvelle catégorie" />
                     <button>Enregistrer</button>
@@ -66,22 +80,11 @@ const Account = ({ info }) => {
                 <td>Gallerie Lafayette</td>
                 <td>18€</td>
                 <td>350€</td>
-                <td className="details-td">
-                  <img
-                    className="details"
-                    src={arrow}
-                    alt="Voir les détails"
-                    onClick={toggleCategoryEdit}
-                  />
-                </td>
+                <td className="details-td"></td>
               </tr>
               {isCategoryEditVisible && (
                 <tr>
-                  <td colSpan="5">
-                    {/* Formulaire de modification de la catégorie */}
-                    <input type="text" placeholder="Nouvelle catégorie" />
-                    <button>Enregistrer</button>
-                  </td>
+                  <td colSpan="4">Type de transaction</td>
                 </tr>
               )}
               <tr>
@@ -89,41 +92,17 @@ const Account = ({ info }) => {
                 <td>Gallerie Lafayette</td>
                 <td>18€</td>
                 <td>350€</td>
-                <td className="details-td">
-                  <img className="details" src={arrow} alt="Voir les détails" />
-                </td>
+                <td className="details-td"></td>
               </tr>
               {isCategoryEditVisible && (
                 <tr>
-                  <td colSpan="5">
+                  <td colSpan="4">
                     {/* Formulaire de modification de la catégorie */}
                     <input type="text" placeholder="Nouvelle catégorie" />
                     <button>Enregistrer</button>
                   </td>
                 </tr>
               )}
-              <tr>
-                <td>26/09/2021</td>
-                <td>Gallerie Lafayette</td>
-                <td>18€</td>
-                <td>350€</td>
-                <td className="details-td">
-                  <img className="details" src={arrow} alt="Voir les détails" />
-                </td>
-              </tr>
-              {isCategoryEditVisible && (
-                <tr>
-                  <td colSpan="5">
-                    {/* Formulaire de modification de la catégorie */}
-                    <input type="text" placeholder="Nouvelle catégorie" />
-                    <button>Enregistrer</button>
-                  </td>
-                </tr>
-              )}
-
-              {/* Ajoutez d'autres lignes ici */}
-
-              {/* Fin des autres lignes */}
             </tbody>
           </table>
         </div>
