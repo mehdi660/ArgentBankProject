@@ -22,10 +22,9 @@
 
 .edit-transaction {
   background-color: #34dba1;
-  width: 90%;
   display: flex;
   align-items: flex-start;
-  padding-left: 20px;
+  padding-left: 45px;
   flex-direction: column;
 }
 
@@ -45,7 +44,8 @@
   font-weight: 200;
 }
 
-.arrow-right {
+.arrow-right,
+.arrow-down {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -56,13 +56,6 @@
 }
 
 .arrow-down {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  right: 50px;
-  top: 46px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
   transform: rotateZ(90deg);
 }
 
@@ -78,6 +71,7 @@ table {
   margin-top: 20px;
   width: 100%;
 }
+
 table th {
   padding: 7px;
   background: #ffffff;
@@ -87,6 +81,7 @@ table th {
 table tr {
   width: 100%;
 }
+
 table td {
   text-align: center;
   padding: 7px;
@@ -107,15 +102,18 @@ table td {
   background: white;
 }
 
-.icon {
+.edit-note,
+.edit-category,
+.edit-btn {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-#note {
+.edit-note {
   padding-right: 15px;
 }
 
-#edit-note {
-  cursor: pointer;
+.edit-btn {
+  padding-left: 10px;
 }

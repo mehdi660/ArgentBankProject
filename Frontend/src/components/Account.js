@@ -4,7 +4,6 @@ import transactionsData from "../data/transaction";
 import { FiEdit2 } from "react-icons/fi";
 
 const Account = ({ info }) => {
-  // États
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [openTransactions, setOpenTransactions] = useState([]);
 
@@ -66,11 +65,13 @@ const Account = ({ info }) => {
                       <td colSpan="4">
                         <div className="edit-transaction">
                           <h4>Type de transaction: {transaction.type}</h4>
-                          <h4>Catégorie : {transaction.category}</h4>
-                          <FiEdit2 />
-                          <div className="icon">
+                          <div className="edit-category">
+                            <h4>Catégorie : {transaction.category}</h4>
+                            <FiEdit2 className="edit-btn" />
+                          </div>
+                          <div className="edit-note">
                             <h4 id="note">Note : {transaction.note}</h4>
-                            <FiEdit2 id="edit-note" />
+                            <FiEdit2 className="edit-btn" />
                           </div>
                         </div>
                       </td>
