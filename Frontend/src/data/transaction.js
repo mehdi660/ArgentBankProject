@@ -4,24 +4,28 @@ const transactionsData = [
     description: "Gallerie Lafayette",
     price: "18€",
     balance: "350€",
+    type: "Electronique",
   },
   {
     date: "27/09/2021",
-    description: "Autre transaction",
+    description: "Gallerie Lafayette",
     price: "25€",
     balance: "325€",
+    type: "Electronique",
   },
-    {
+  {
     date: "27/09/2021",
-    description: "Autre transaction",
+    description: "Gallerie Lafayette",
     price: "25€",
     balance: "325€",
+    type: "Electronique",
   },
-    {
+  {
     date: "27/09/2021",
-    description: "Autre transaction",
+    description: "Gallerie Lafayette",
     price: "25€",
     balance: "325€",
+    type: "Electronique",
   },
   // Ajoutez d'autres transactions ici
 ];

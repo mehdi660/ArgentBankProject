@@ -22,7 +22,7 @@
 
 .edit-transaction {
   background-color: #34dba1;
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: flex-start;
   padding-left: 20px;
@@ -114,4 +114,8 @@ table td {
 
 #note {
   padding-right: 15px;
+}
+
+#edit-note {
+  cursor: pointer;
 }

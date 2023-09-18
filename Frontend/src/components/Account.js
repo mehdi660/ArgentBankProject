@@ -1,39 +1,44 @@
 import React, { useState } from "react";
 import arrow from "../assets/img/arrow-acnt.png";
-import transactionsData from "../data/transaction"; // Importez les données
+import transactionsData from "../data/transaction";
 import { FiEdit2 } from "react-icons/fi";
 
 const Account = ({ info }) => {
+  // États
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [openTransactions, setOpenTransactions] = useState([]);
-  const [isEditingCategory, setIsEditingCategory] = useState(false);
-  const [newCategory, setNewCategory] = useState("");
+  const [isEditingNote, setIsEditingNote] = useState(false);
+  const [newNote, setNewNote] = useState("");
 
+  // Fonction pour basculer l'état de collapse
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const toggleCategoryEdit = (index) => {
+  // Fonction pour basculer l'état d'édition de la note
+  const toggleNoteEdit = (index) => {
     const updatedOpenTransactions = [...openTransactions];
     updatedOpenTransactions[index] = !updatedOpenTransactions[index];
     setOpenTransactions(updatedOpenTransactions);
   };
 
-  const handleEditCategory = () => {
-    setIsEditingCategory(!isEditingCategory);
+  // Fonction pour gérer le début/fin de l'édition de la note
+  const handleEditNote = () => {
+    setIsEditingNote(!isEditingNote);
   };
 
-  const handleCategoryChange = (event) => {
-    setNewCategory(event.target.value);
+  // Fonction pour gérer le changement de la nouvelle note
+  const handleNoteChange = (event) => {
+    setNewNote(event.target.value);
   };
 
-  const handleSaveCategory = () => {
-    // Effectuez ici la logique de sauvegarde de la catégorie modifiée
-    // En utilisant newCategory
+  // Fonction pour gérer la sauvegarde de la note
+  const handleSaveNote = () => {
+    // Renommée en handleSaveNote
+    // Effectuez ici la logique de sauvegarde de la note modifiée
+    // En utilisant newNote
     // Puis réinitialisez l'état d'édition
-    setIsEditingCategory(false);
-    setNewCategory();
-
+    setIsEditingNote(false);
   };
 
   return (
@@ -73,7 +78,7 @@ const Account = ({ info }) => {
                         className="details"
                         src={arrow}
                         alt="Voir les détails"
-                        onClick={() => toggleCategoryEdit(index)}
+                        onClick={() => toggleNoteEdit(index)}
                       />
                     </td>
                   </tr>
@@ -81,21 +86,26 @@ const Account = ({ info }) => {
                     <tr>
                       <td colSpan="4">
                         <div className="edit-transaction">
-                          <h4>Type de transaction</h4>
+                          <h4>Type de transaction: Electronique</h4>
                           <h4>Catégorie</h4>
-                          {isEditingCategory ? (
+                          {isEditingNote ? (
                             <div className="icon">
                               <input
                                 type="text"
-                                value={newCategory}
-                                onChange={handleCategoryChange}
+                                value={newNote}
+                                onChange={handleNoteChange}
                               />
-                              <button onClick={handleSaveCategory}>Enregistrer</button>
+                              <button onClick={handleSaveNote}>
+                                Enregistrer
+                              </button>
                             </div>
                           ) : (
                             <div className="icon">
-                              <h4 id="note">Note</h4>
-                              <FiEdit2 onClick={handleEditCategory} />
+                              <h4 id="note">Note : {newNote}</h4>
+                              <FiEdit2
+                                id="edit-note"
+                                onClick={handleEditNote}
+                              />
                             </div>
                           )}
                         </div>
