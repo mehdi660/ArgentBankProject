@@ -13,7 +13,7 @@ const Account = ({ info }) => {
   };
 
   // Fonction pour basculer l'état d'édition de la note
-  const toggleNoteEdit = (index) => {
+  const toggleCollapsTransaction = (index) => {
     const updatedOpenTransactions = [...openTransactions];
     updatedOpenTransactions[index] = !updatedOpenTransactions[index];
     setOpenTransactions(updatedOpenTransactions);
@@ -33,7 +33,11 @@ const Account = ({ info }) => {
         />
       </div>
       {isCollapsed && (
-        <div className="collapsible-section">
+        <div
+          className={`collapsible-content ${
+            isCollapsed ? "collapsible-content-open" : ""
+          }`}
+        >
           <table>
             <thead>
               <tr>
@@ -56,7 +60,7 @@ const Account = ({ info }) => {
                         className="details"
                         src={arrow}
                         alt="Voir les détails"
-                        onClick={() => toggleNoteEdit(index)}
+                        onClick={() => toggleCollapsTransaction(index)}
                       />
                     </td>
                   </tr>
@@ -64,13 +68,13 @@ const Account = ({ info }) => {
                     <tr>
                       <td colSpan="4">
                         <div className="edit-transaction">
-                          <h4>Type de transaction: {transaction.type}</h4>
+                          <h4>Type de transaction {transaction.type}</h4>
                           <div className="edit-category">
-                            <h4>Catégorie : {transaction.category}</h4>
+                            <h4>Catégorie {transaction.category}</h4>
                             <FiEdit2 className="edit-btn" />
                           </div>
                           <div className="edit-note">
-                            <h4 id="note">Note : {transaction.note}</h4>
+                            <h4 id="note">Note {transaction.note}</h4>
                             <FiEdit2 className="edit-btn" />
                           </div>
                         </div>

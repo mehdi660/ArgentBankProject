@@ -24,8 +24,13 @@
   background-color: #34dba1;
   display: flex;
   align-items: flex-start;
-  padding-left: 45px;
+  padding: 25px;
   flex-direction: column;
+}
+
+.edit-transaction h4 {
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .account-title {
@@ -59,9 +64,42 @@
   transform: rotateZ(90deg);
 }
 
-.collapsible-section {
+.collapsible-content {
   margin-bottom: 20px;
   width: 81%;
+  max-height: 0;
+  overflow: hidden;
+  animation: closeCollapse 0.3s ease-in-out;
+}
+
+.collapsible-content-open {
+  max-height: 1000px; /* Ajustez la valeur selon vos besoins */
+  overflow: hidden;
+  animation: openCollapse 0.4s ease-in-out;
+  animation-fill-mode: forwards; /* Conserve l'état final de l'animation */
+}
+
+@keyframes openCollapse {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 1000px; /* Ajustez la valeur selon vos besoins */
+    opacity: 1;
+  }
+}
+
+/* Définition des keyframes pour la fermeture de la collapse */
+@keyframes closeCollapse {
+  from {
+    max-height: 1000px; /* Ajustez la valeur selon vos besoins */
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
 }
 
 table {
@@ -106,7 +144,7 @@ table td {
 .edit-category,
 .edit-btn {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
 }
 

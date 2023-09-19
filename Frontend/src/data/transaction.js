@@ -35,7 +35,6 @@ const transactionsData = [
     category: "Nourriture",
     note: "lorem ipsum",
   },
-  // Ajoutez d'autres transactions ici
 ];
 
 export default transactionsData;
