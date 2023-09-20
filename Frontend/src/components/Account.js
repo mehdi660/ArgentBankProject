@@ -57,7 +57,9 @@ const Account = ({ info }) => {
                     <td>{transaction.balance}</td>
                     <td className="details-td">
                       <img
-                        className="details"
+                        className={`details ${
+                          openTransactions[index] ? "details-down" : ""
+                        }`}
                         src={arrow}
                         alt="Voir les détails"
                         onClick={() => toggleCollapsTransaction(index)}
