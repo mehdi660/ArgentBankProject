@@ -70,13 +70,25 @@ const Account = ({ info }) => {
                     <tr>
                       <td colSpan="4">
                         <div className="edit-transaction">
-                          <h4>Type de transaction {transaction.type}</h4>
-                          <div className="edit-category">
-                            <h4>Catégorie {transaction.category}</h4>
+                          <div className="transac-container">
+                            <h4>Type de transaction </h4>
+                            <span className="transac-info">
+                              {" "}
+                              {transaction.type}
+                            </span>
+                          </div>
+                          <div className="transac-container">
+                            <h4>Catégorie </h4>
+                            <span className="transac-info">
+                              {transaction.category}
+                            </span>
                             <FiEdit2 className="edit-btn" />
                           </div>
-                          <div className="edit-note">
-                            <h4 id="note">Note {transaction.note}</h4>
+                          <div className="transac-container">
+                            <h4 id="note">Note </h4>
+                            <span className="transac-info">
+                              {transaction.note}
+                            </span>
                             <FiEdit2 className="edit-btn" />
                           </div>
                         </div>
