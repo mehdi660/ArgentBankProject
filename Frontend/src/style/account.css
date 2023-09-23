@@ -114,29 +114,27 @@ table td {
 .edit-category,
 .edit-note {
   cursor: pointer;
+  margin-left: 10px;
 }
 .edit-transaction {
   background-color: #34dba1;
-  padding: 25px;
   animation: 0.5s ease-in-out openCollapse;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.edit-transaction h4 {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.transac-info {
+  margin-left: 10px;
 }
 
 .transac-container {
   display: flex;
-  flex-direction: row; /* Modifier la direction en ligne */
-  padding: 20px;
-}
-
-.transac-info {
-  text-align: center;
-}
-
-.edit-transaction h4 {
-  margin: 0;
-}
-.edit-note {
-  padding-right: 15px;
-}
-.edit-btn {
-  padding-left: 10px;
+  flex-direction: row;
+  align-items: baseline;
 }

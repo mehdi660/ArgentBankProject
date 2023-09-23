@@ -7,12 +7,12 @@ const Account = ({ info }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [openTransactions, setOpenTransactions] = useState([]);
 
-  // Fonction pour basculer l'état de collapse
+  // fonction pour basculer letat de collapse
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  // Fonction pour basculer l'état d'édition de la note
+  // Fonction pour basculer letat dedition de la note
   const toggleCollapsTransaction = (index) => {
     const updatedOpenTransactions = [...openTransactions];
     updatedOpenTransactions[index] = !updatedOpenTransactions[index];
@@ -70,22 +70,21 @@ const Account = ({ info }) => {
                     <tr>
                       <td colSpan="4">
                         <div className="edit-transaction">
-                          <div className="transac-container">
-                            <h4>Type de transaction </h4>
+                          <div className="transac-container transac">
+                            <h4>Type de transaction: </h4>
                             <span className="transac-info">
-                              {" "}
                               {transaction.type}
                             </span>
                           </div>
-                          <div className="transac-container">
-                            <h4>Catégorie </h4>
+                          <div className="transac-container category">
+                            <h4>Catégorie: </h4>
                             <span className="transac-info">
                               {transaction.category}
                             </span>
                             <FiEdit2 className="edit-btn" />
                           </div>
-                          <div className="transac-container">
-                            <h4 id="note">Note </h4>
+                          <div className="transac-container note">
+                            <h4 id="note">Note: </h4>
                             <span className="transac-info">
                               {transaction.note}
                             </span>
