@@ -3,19 +3,22 @@ info:
   title: Transaction Bank Argent API documentation
   description: Contains all available API endpoints for transaction
   version: "1.0.0"
-  termsOfService: "http://swagger.io/terms/"
+
 host: localhost:3001
 basePath: /api/v1
 schemes:
   - https
+
 paths:
   /account:
     get:
       summary:
-        - Get account
+        - Get account of user
       description: Getting user account
+
       security:
         -Bearer: []
+
       responses:
         "200":
           description: Account succesfully get
@@ -23,28 +26,31 @@ paths:
           description: Unauthorized to get account
         "500":
           description: Internal Server Error
-  /user/signup:
-    post:
-      tags:
-        - User Module
-      summary: Signup
-      description: API for Signup
+
+
+  /account/{accountId}/transaction:
+    get:
+      summary: Get transaction 
+      description: get user transaction from their account
+
+         security:
+        -Bearer: []
+
       parameters:
-        - in: body
-          name: body
-          description: Signup Payload
+      - name: accountId
+         in: path
+          description: Id of the user account
           required: true
-          schema:
-            $ref: "#/definitions/User"
-      produces:
-        - application/json
+         type: integer
+
+
       responses:
         "200":
-          description: Signup Successfully
-          schema:
-            $ref: "#/definitions/ApiResponse"
+          description: Account succesfully get
+
         "400":
-          description: Invalid Fields
+          description: Unauthorized to get transaction
+          
         "500":
           description: Internal Server Error
   /user/profile:
