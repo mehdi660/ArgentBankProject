@@ -50,26 +50,36 @@ paths:
 
         "400":
           description: Unauthorized to get transaction
-          
+
         "500":
           description: Internal Server Error
-  /user/profile:
+
+
+  /transaction/{transactionId/category}:
     post:
+    summary: Modify a category transaction
+    description: Modify a category transaction on the user account
+
       security:
         - Bearer: []
-      tags:
-        - User Module
-      summary: User Profile API
-      description: API for fetching a user profile
-      #produces:
-      # - application/json
+
+        parameters: 
+        - name: transactionId
+        in: path
+        descrpition: Id of the transaction
+        type: integer
+        required: true
+
+        -name: category
+        in: body
+        description: New category for transaction
+        type: string
+
       responses:
         "200":
-          description: User profile retrieved successully
-          schema:
-            $ref: "#/definitions/ApiResponse"
+          description: Category successfully modify
         "400":
-          description: Invalid Fields
+          description: Unauthorized to modify category
         "500":
           description: Internal Server Error
     put:
