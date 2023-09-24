@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
-  title: Bank Argent API documentation
-  description: Contains all available API endpoints in this codebase
+  title: Transaction Bank Argent API documentation
+  description: Contains all available API endpoints for transaction
   version: "1.0.0"
   termsOfService: "http://swagger.io/terms/"
 host: localhost:3001
@@ -11,26 +11,16 @@ schemes:
 paths:
   /account:
     get:
-      tags:
-        - User Module
-      summary: Login
-      description: API for Login
-      parameters:
-        - in: body
-          name: body
-          description: Login Payload
-          required: true
-          schema:
-            $ref: "#/definitions/Login"
-      produces:
-        - application/json
+      summary:
+        - Get account
+      description: Getting user account
+      security:
+        -Bearer: []
       responses:
         "200":
-          description: Login Successfully
-          schema:
-            $ref: "#/definitions/LoginResponse"
+          description: Account succesfully get
         "400":
-          description: Invalid Fields
+          description: Unauthorized to get account
         "500":
           description: Internal Server Error
   /user/signup:
