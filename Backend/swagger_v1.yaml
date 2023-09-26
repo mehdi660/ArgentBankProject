@@ -103,7 +103,9 @@ paths:
         "200":
           description: Note added successfully
         "400":
-          description: Invalid Fields
+          description: Unauthorized to add note
+          "404": 
+           description: Account unvailable  
         "500":
           description: Internal Server Error
 
