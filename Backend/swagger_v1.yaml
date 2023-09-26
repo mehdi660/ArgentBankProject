@@ -44,6 +44,8 @@ paths:
           description: Account successfully retrieved
         "400":
           description: Unauthorized to get transaction
+        "404": 
+          description: Account not available or not found 
         "500":
           description: Internal Server Error
 
@@ -104,8 +106,6 @@ paths:
           description: Note added successfully
         "400":
           description: Unauthorized to add note
-          "404": 
-           description: Account unvailable  
         "500":
           description: Internal Server Error
 
@@ -113,59 +113,4 @@ securityDefinitions:
   Bearer:
     type: apiKey
     name: Authorization
-    in: header
-
-definitions:
-  User:
-    properties:
-      email:
-        type: string
-        description: User email
-      password:
-        type: string
-        description: User password
-      firstName:
-        type: string
-        description: User first name
-      lastName:
-        type: string
-        description: User last name
-      userName:
-        type: string
-        description: User public name
-
-  Login:
-    properties:
-      email:
-        type: string
-        description: User email
-      password:
-        type: string
-        description: User password
-
-  ApiResponse:
-    type: object
-    properties:
-      status:
-        type: integer
-      message:
-        type: string
-      body:
-        type: object
-        properties:
-          id:
-            type: string
-          email:
-            type: string
-
-  LoginResponse:
-    type: object
-    properties:
-      token:
-        type: string
-
-  UserProfile:
-    type: object
-    properties:
-      userName:
-        type: string
+    in: header 
