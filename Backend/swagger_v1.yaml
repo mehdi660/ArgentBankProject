@@ -17,7 +17,7 @@ paths:
       description: Getting user account
 
       security:
-        -Bearer: []
+    -Bearer: [ ]
 
       responses:
         "200":
@@ -25,6 +25,7 @@ paths:
         "400":
           description: Unauthorized to get account
         "500":
+
           description: Internal Server Error
 
 
@@ -56,7 +57,7 @@ paths:
 
 
   /transaction/{transactionId/category}:
-    post:
+    put:
     summary: Modify a category transaction
     description: Modify a category transaction on the user account
 
@@ -82,6 +83,10 @@ paths:
           description: Unauthorized to modify category
         "500":
           description: Internal Server Error
+
+
+
+
     put:
       security:
         - Bearer: []
