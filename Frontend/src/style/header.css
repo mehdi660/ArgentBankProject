@@ -74,4 +74,29 @@
     width: 20px;
     height: 20px;
   }
+
+  .logo img {
+    width: 100%;
+  }
+
+  .logo {
+    width: 100px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .logo {
+    width: 100px;
+  }
+
+  .navigation ul {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .signout {
+    margin: 0;
+    font-size: 13px;
+  }
 }
