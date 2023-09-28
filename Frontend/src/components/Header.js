@@ -23,7 +23,6 @@ const Header = () => {
         console.error("Error fetching user data:", error);
       }
     };
-
     fetchUserData();
   }, [isConnected, token]);
 
@@ -57,7 +56,7 @@ const Header = () => {
             </li>
           ) : (
             <li className="nav-active">
-              <Link to="/login" onClick={handleLogout}>
+              <Link to="/login">
                 <img src={sign} alt="sign in / sign out" />
                 S'identifier/Créer un compte
               </Link>
