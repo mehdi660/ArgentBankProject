@@ -145,7 +145,7 @@ table td {
 }
 
 /* Style du tableau sur les appareils mobiles */
-@media all and (max-width: 430px) {
+@media all and (max-width: 485px) {
   table {
     display: block;
     overflow-x: auto;
@@ -172,5 +172,10 @@ table td {
 
   .account-balance {
     font-size: 20px;
+  }
+  .details {
+    width: 30px;
+    display: flex;
+    margin: 0;
   }
 }
