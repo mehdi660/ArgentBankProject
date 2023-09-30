@@ -17,12 +17,13 @@ const Header = () => {
         // verification si l'user est connecté
         if (isConnected) {
           const data = await makeApiRequest("getProfile", token, {});
-          setUserData(data.body); // Stockage des données dans le state
+          setUserData(data.body.userName); // Stockage des données dans le state
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
+
     fetchUserData();
   }, [isConnected, token]);
 
