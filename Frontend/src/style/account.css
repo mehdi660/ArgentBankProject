@@ -138,3 +138,17 @@ table td {
   flex-direction: row;
   align-items: baseline;
 }
+
+@media all and (max-width: 430px) {
+  .arrow-right {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 40px;
+    top: 46px;
+  }
+
+  .account-balance {
+    font-size: 20px;
+  }
+}
