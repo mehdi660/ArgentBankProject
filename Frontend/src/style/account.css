@@ -87,10 +87,15 @@ table th {
   }
 }
 table {
-  border-collapse: separate;
-  border-spacing: 6px;
-  padding: 4px;
-  margin-top: 20px;
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+    padding: 4px;
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow-x: auto; /* Ajoutez un défilement horizontal en cas de contenu trop large */
+  }
 }
 table th {
   padding: 7px;
@@ -139,7 +144,24 @@ table td {
   align-items: baseline;
 }
 
+/* Style du tableau sur les appareils mobiles */
 @media all and (max-width: 430px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  table th,
+  table td {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .details-td .details img {
+    width: 15px;
+    height: 15px;
+  }
+
   .arrow-right {
     width: 30px;
     height: 30px;
