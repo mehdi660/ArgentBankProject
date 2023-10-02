@@ -104,13 +104,14 @@ const LoginForm = () => {
               ></input>
               <NavLink to="/signup">
                 <input
+                  id="create"
                   className="submit"
                   type="submit"
                   value="Créer un compte"
                 ></input>
               </NavLink>
             </form>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
         </section>
       </div>

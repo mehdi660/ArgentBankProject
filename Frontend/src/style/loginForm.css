@@ -32,7 +32,6 @@
   background-color: rgba(240, 248, 255, 0.378);
   text-align: center;
   width: 300px;
-  height: 350px;
   padding-top: 30px;
   border-radius: 10px;
   box-shadow: 10px 5px 5px #1e19191f;
@@ -75,6 +74,10 @@
   border-radius: 5px;
   font-family: Oswald, sans-serif;
   transition: 0.3s ease-in-out;
+}
+
+#create {
+  margin-bottom: 20px;
 }
 
 .submit:hover {
