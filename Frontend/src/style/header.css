@@ -82,6 +82,11 @@
   .logo {
     width: 100px;
   }
+  .signout {
+    margin: 0;
+    font-size: 13px;
+    padding: 1px 7px;
+  }
 }
 
 @media all and (max-width: 400px) {
@@ -93,15 +98,10 @@
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-right: 10px;
   }
 
   .navigation a {
     font-size: 13px;
-  }
-
-  .signout {
-    margin: 0;
-    font-size: 13px;
-    padding: 1px 7px;
   }
 }
