@@ -81,34 +81,6 @@ paths:
         "500":
           description: Internal Server Error
 
-  /transaction/{transactionId}/note:
-    post:
-      summary: Add note to the transaction
-      description: Allow the user to add a note to their chosen transaction
-      security:
-        - Bearer: []
-      parameters:
-        - name: transactionId
-          in: path
-          description: Id of the transaction
-          required: true
-          type: integer
-        - name: note
-          in: body
-          description: Note for the transaction
-          schema:
-            type: object
-            properties:
-              note:
-                type: string
-      responses:
-        "200":
-          description: Note added successfully
-        "400":
-          description: Unauthorized to add note
-        "500":
-          description: Internal Server Error
-
 securityDefinitions:
   Bearer:
     type: apiKey
