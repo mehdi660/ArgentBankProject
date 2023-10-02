@@ -9,7 +9,7 @@ const Header = () => {
   const token = localStorage.getItem("token");
   const isConnected = token;
   const dataUser = useSelector((state) => state.profile);
-  const [userData, setUserData] = useState({}); // state pour stocker les données de l'utilisateur
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -20,7 +20,7 @@ const Header = () => {
           setUserData(data.body.userName); // Stockage des données dans le state
         }
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error("Error fetching user data:", error); // ! supprimez le token
       }
     };
 

@@ -1,9 +1,8 @@
 swagger: "2.0"
 info:
-  title: Transaction Bank Argent API documentation
-  description: Contains all available API endpoints for transaction
+  title: Transaction Bank Argent API Documentation
+  description: Contains all available API endpoints for transactions
   version: "1.0.0"
-
 host: localhost:3001
 basePath: /api/v1
 schemes:
@@ -16,9 +15,8 @@ paths:
       description: Getting user account
       security:
         - Bearer: []
-
       responses:
-        "200":
+        "200": 
           description: Account successfully retrieved
         "400":
           description: Unauthorized to get account
@@ -31,14 +29,12 @@ paths:
       description: Get user transactions from their account
       security:
         - Bearer: []
-
       parameters:
         - name: accountId
           in: path
           description: Id of the user account
           required: true
           type: integer
-
       responses:
         "200":
           description: Account successfully retrieved
@@ -49,33 +45,39 @@ paths:
         "500":
           description: Internal Server Error
 
-  /transaction/{transactionId}/category:
+  /transaction/{transactionId}:
     put:
-      summary: Modify a category transaction
-      description: Modify a category transaction on the user account
+      summary: Modify transaction category and note
+      description: Modify both the category and note of a specific transaction on the user account
       security:
         - Bearer: []
-
       parameters:
         - name: transactionId
           in: path
-          description: Id of the transaction
+          description: Transaction ID
           type: integer
           required: true
-        - name: category
+        - name: transactionDetails
           in: body
-          description: New category for transaction
+          description: Transaction details to modify
           schema:
             type: object
             properties:
               category:
                 type: string
-
+                description: New category for the transaction
+              note:
+                type: string
+                description: New note for the transaction
       responses:
         "200":
-          description: Category successfully modified
+          description: Category and note modified successfully
         "400":
-          description: Unauthorized to modify category
+          description: Unauthorized to modify category and note
+        "401":
+          description: Unauthorized request. Invalid or missing authentication token
+        "403":
+          description: Forbidden. Insufficient permissions to modify category and note
         "500":
           description: Internal Server Error
 
@@ -85,7 +87,6 @@ paths:
       description: Allow the user to add a note to their chosen transaction
       security:
         - Bearer: []
-
       parameters:
         - name: transactionId
           in: path
@@ -100,7 +101,6 @@ paths:
             properties:
               note:
                 type: string
-
       responses:
         "200":
           description: Note added successfully
@@ -113,4 +113,4 @@ securityDefinitions:
   Bearer:
     type: apiKey
     name: Authorization
-    in: header 
+    in: header
