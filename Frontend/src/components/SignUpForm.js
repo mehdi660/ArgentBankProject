@@ -67,12 +67,6 @@ const SignUp = () => {
                 name="email"
                 onChange={handleChange}
               />
-              {!checks.email && errorMessage && (
-                <p>
-                  L'email doit contenir au minimum 3 caractéres, et le symbole
-                  "@"
-                </p>
-              )}
 
               <label htmlFor="prenom">Prénom: </label>
               <input
@@ -83,9 +77,6 @@ const SignUp = () => {
                 size="30"
                 onChange={handleChange}
               />
-              {!checks.firstName && errorMessage && (
-                <p>Le prénom doit contenir au minimum 2 caractéres</p>
-              )}
 
               <label htmlFor="famille">Nom de famille: </label>
               <input
@@ -96,9 +87,6 @@ const SignUp = () => {
                 size="30"
                 onChange={handleChange}
               />
-              {!checks.lastName && errorMessage && (
-                <p>Le nom de famille doit contenir au minimum 2 caractéres</p>
-              )}
 
               <label htmlFor="userName">Username: </label>
               <input
@@ -109,9 +97,6 @@ const SignUp = () => {
                 size="30"
                 onChange={handleChange}
               />
-              {!checks.userName && errorMessage && (
-                <p>L'username doit contenir au minimum 5 caractéres</p>
-              )}
 
               <label htmlFor="password">Mot de passe :</label>
               <input
@@ -121,15 +106,39 @@ const SignUp = () => {
                 className="password"
                 onChange={handleChange}
               />
-              {!checks.password && errorMessage && (
-                <p>Le mot de passe doit contenir au minimum 6 caractéres</p>
-              )}
+
               <input
                 className="submit"
                 type="submit"
                 value="Créer un compte"
               ></input>
             </form>
+            {!checks.email && errorMessage && (
+              <p className="error_mssg_su">
+                • L'email doit contenir au minimum 3 caractéres, et le symbole
+                "@"
+              </p>
+            )}
+            {!checks.firstName && errorMessage && (
+              <p className="error_mssg_su">
+                • Le prénom doit contenir au minimum 2 caractéres
+              </p>
+            )}
+            {!checks.lastName && errorMessage && (
+              <p className="error_mssg_su">
+                • Le nom de famille doit contenir au minimum 2 caractéres
+              </p>
+            )}
+            {!checks.userName && errorMessage && (
+              <p className="error_mssg_su">
+                • L'username doit contenir au minimum 5 caractéres
+              </p>
+            )}
+            {!checks.password && errorMessage && (
+              <p className="error_mssg_su">
+                • Le mot de passe doit contenir au minimum 6 caractéres
+              </p>
+            )}
           </div>
         </section>
       </div>

@@ -89,6 +89,8 @@
   width: 170px;
 }
 
-#signup-container {
-  height: 420px;
+.error_mssg_su {
+  font-size: 11px;
+  text-align-last: left;
+  margin-left: 10px;
 }
