@@ -89,7 +89,11 @@
   width: 170px;
 }
 
-.error_mssg_su {
+#submit_btn {
+  margin-bottom: 20px;
+}
+
+.error_mssg {
   font-size: 11px;
   text-align-last: left;
   margin-left: 10px;

@@ -11,7 +11,7 @@ import Account from "../components/Account";
 const Profile = () => {
   const userData = useSelector((state) => state.profile);
   const dispatch = useDispatch();
-  const token = localStorage.token;
+  const token = useSelector((state) => state.signIn.token);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -23,7 +23,7 @@ const Profile = () => {
       }
     };
     fetchUserData();
-  }, []);
+  }, [dispatch, token]);
 
   return (
     <>
