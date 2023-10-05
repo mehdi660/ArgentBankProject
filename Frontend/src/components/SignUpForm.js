@@ -112,6 +112,7 @@ const SignUp = () => {
                 value="Créer un compte"
               ></input>
             </form>
+            <></>
             {!checks.email && errorMessage && (
               <p className="error_mssg">
                 L'email doit contenir au minimum 3 caractéres, et le symbole "@"
