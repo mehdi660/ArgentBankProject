@@ -11,7 +11,7 @@ import Account from "../components/Account";
 const Profile = () => {
   const userData = useSelector((state) => state.profile);
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.signIn.token);
+  const token = localStorage.token;
 
   useEffect(() => {
     const fetchUserData = async () => {
