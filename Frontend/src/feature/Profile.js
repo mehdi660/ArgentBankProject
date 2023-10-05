@@ -10,10 +10,10 @@ export const profileSlice = createSlice({
   },
   reducers: {
     setProfileData: (state, action) => {
-      state.email = action.payload?.data?.body?.email;
-      state.userName = action.payload?.data?.body?.userName;
-      state.firstName = action.payload?.data?.body?.firstName;
-      state.lastName = action.payload?.data?.body?.lastName;
+      state.email = action.payload.data.body.email;
+      state.userName = action.payload.data.body.userName;
+      state.firstName = action.payload.data.body.firstName;
+      state.lastName = action.payload.data.body.lastName;
     },
     setEditUserName: (state, action) => {
       state.userName = action.payload.editUserName;
