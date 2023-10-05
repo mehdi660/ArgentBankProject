@@ -102,7 +102,6 @@ const LoginForm = () => {
                 type="submit"
                 value="S'identifier"
               ></input>
-              <></>
               <NavLink to="/signup">
                 <input
                   id="create"
