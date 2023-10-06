@@ -49,7 +49,7 @@ const Header = () => {
             <li className="nav-log">
               <img src={sign} alt="sign in / sign out" />
               <Link className="nav-active" to="/profile">
-                {dataUser.userName}
+                {dataUser.firstName}
               </Link>
               <button className="signout" onClick={handleLogout}>
                 Déconnexion

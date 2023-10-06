@@ -29,7 +29,7 @@ const Profile = () => {
     <>
       <Header />
       <main id="main-profile">
-        <h2 id="greeting">Bonjour, {userData.userName} 👋</h2>
+        <h2 id="greeting">Bonjour, {userData.firstName} 👋</h2>
         <UserName />
 
         <Account
