@@ -149,11 +149,14 @@
   .logo {
     width: 100px;
   }
-  /* .signout {
-    margin: 0;
-    font-size: 13px;
-    padding: 1px 7px;
-  } */
+  .Btn {
+    width: 25px;
+    height: 25px;
+  }
+
+  .text {
+    font-size: 1em;
+  }
 }
 
 @media all and (max-width: 400px) {
@@ -170,14 +173,5 @@
 
   .navigation a {
     font-size: 13px;
-  }
-
-  .Btn {
-    width: 25px;
-    height: 25px;
-  }
-
-  .text {
-    font-size: 1em;
   }
 }

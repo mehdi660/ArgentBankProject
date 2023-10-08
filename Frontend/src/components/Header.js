@@ -7,6 +7,7 @@ import { makeApiRequest } from "../service/callApi";
 
 const Header = () => {
   const token = localStorage.getItem("token");
+  const firstName = localStorage.getItem("username");
   const isConnected = token;
   const dataUser = useSelector((state) => state.profile);
   const [userData, setUserData] = useState({});
@@ -49,11 +50,8 @@ const Header = () => {
             <li className="nav-log">
               <img src={sign} alt="sign in / sign out" />
               <Link className="nav-active" to="/profile">
-                {dataUser.firstName}
+                {firstName}
               </Link>
-              {/* <button className="signout" onClick={handleLogout}>
-                Déconnexion
-              </button> */}
               <button className="Btn" onClick={handleLogout}>
                 <div className="sign">
                   <svg viewBox="0 0 512 512">

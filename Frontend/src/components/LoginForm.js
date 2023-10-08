@@ -32,6 +32,11 @@ const LoginForm = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
 
+    if (!username || !password) {
+      setErrorMessage("Veuillez remplir tous les champs."); // Set error message
+      return;
+    }
+
     try {
       const response = await makeApiRequest("login", null, {
         email: username,

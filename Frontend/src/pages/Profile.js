@@ -16,14 +16,22 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
+        localStorage.setItem("username", JSON.stringify(userData.firstName)); // Stockez les données de l'utilisateur
         const data = await makeApiRequest("getProfile", token, {});
         dispatch(setProfileData({ data }));
       } catch (error) {
         console.log(error, "error");
+        // Rediriger l'utilisateur vers la page de connexion en cas d'erreur
+        window.location.href = "/login";
       }
     };
-    fetchUserData();
-  }, [dispatch, token]);
+    if (token) {
+      fetchUserData();
+    } else {
+      // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+      window.location.href = "/login";
+    }
+  }, [dispatch, token, userData.firstName]);
 
   return (
     <>
