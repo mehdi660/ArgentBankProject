@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Logo from "../assets/img/argentBankLogo.png";
 import sign from "../assets/img/icons8-nom-24.png";
 import { makeApiRequest } from "../service/callApi";
@@ -8,8 +7,7 @@ import { makeApiRequest } from "../service/callApi";
 const Header = () => {
   const token = localStorage.getItem("token");
   const isConnected = token;
-  const dataUser = useSelector((state) => state.profile);
-  const [userData, setUserData] = useState({});
+  const [, setUserData] = useState({});
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -17,7 +15,7 @@ const Header = () => {
         // verification si l'user est connecté
         if (isConnected) {
           const data = await makeApiRequest("getProfile", token, {});
-          setUserData(data.body.userName); // Stockage des données dans le state
+          setUserData(data.body.userName);
         }
       } catch (error) {
         console.error("Error fetching user data:", error); // ! supprimez le token
@@ -46,7 +44,7 @@ const Header = () => {
       <div className="navigation">
         <ul>
           {isConnected ? (
-            <li className="nav-log">
+            <>
               <Link className="nav-active" to="/profile">
                 <img src={sign} alt="sign in / sign out" />
               </Link>
@@ -59,7 +57,7 @@ const Header = () => {
 
                 <div className="text">Logout</div>
               </button>
-            </li>
+            </>
           ) : (
             <li className="nav-active">
               <Link to="/login">
