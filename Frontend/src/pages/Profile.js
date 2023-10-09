@@ -7,8 +7,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { makeApiRequest } from "../service/callApi";
 import Account from "../components/Account";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const userData = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   const token = localStorage.token;
@@ -20,10 +22,11 @@ const Profile = () => {
         dispatch(setProfileData({ data }));
       } catch (error) {
         console.log(error, "error");
+        navigate("error");
       }
     };
     fetchUserData();
-  }, [dispatch, token]);
+  }, [dispatch, navigate, token]);
 
   return (
     <>
