@@ -4,7 +4,7 @@ import { setEditUserName } from "../feature/Profile";
 import { setProfileData } from "../feature/Profile";
 import { makeApiRequest } from "../service/callApi";
 
-const UserName = ({ onSubmit }) => {
+const UserName = () => {
   const userData = useSelector((state) => state.profile);
   const token = localStorage.token;
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const UserName = ({ onSubmit }) => {
       }
     };
     fetchUserData();
-  }, []);
+  }, [dispatch, token]);
 
   const changeUserName = async (e) => {
     e.preventDefault();

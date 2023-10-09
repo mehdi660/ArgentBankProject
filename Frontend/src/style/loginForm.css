@@ -2,30 +2,25 @@
   background: url(../assets/img/money-g2a0dcce2e_1280.jpg) center/cover;
   height: 100vh;
 }
-
 .blur-container {
   backdrop-filter: blur(10px);
   height: 100%;
 }
-
 .modal-form img {
   width: 30px;
   height: 30px;
 }
-
 .modal-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .modal-form form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 .form-ctnr {
   margin-top: 150px;
   align-items: center;
@@ -36,15 +31,13 @@
   border-radius: 10px;
   box-shadow: 10px 5px 5px #1e19191f;
 }
-
 .form-ctnr h3 {
   margin-top: 0;
 }
-
 .email,
+.famille,
 .password,
 .prenom,
-.famille,
 .username {
   width: 200px;
   height: 20px;
@@ -54,15 +47,12 @@
   border-radius: 5px;
   text-align: left;
 }
-
 .login input[type="submit"] {
   font-family: oswald, sans-serif;
 }
-
 .center-left {
   text-align: left;
 }
-
 .submit {
   margin-top: 20px;
   border: 1px solid #000;
@@ -75,24 +65,17 @@
   font-family: Oswald, sans-serif;
   transition: 0.3s ease-in-out;
 }
-
-#create {
+#create,
+#submit_btn {
   margin-bottom: 20px;
 }
-
 .submit:hover {
   background-color: #00bc7744;
   transform: scale(1.05);
 }
-
 #submit-form {
   width: 170px;
 }
-
-#submit_btn {
-  margin-bottom: 20px;
-}
-
 .error_mssg {
   font-size: 11px;
   text-align-last: left;

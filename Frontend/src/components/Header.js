@@ -12,7 +12,6 @@ const Header = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // verification si l'user est connecté
         if (isConnected) {
           const data = await makeApiRequest("getProfile", token, {});
           setUserData(data.body.userName);

@@ -1,3 +1,12 @@
+.account,
+.account-ctnr {
+  flex-direction: column;
+  display: flex;
+}
+table,
+table td {
+  border-radius: 5px;
+}
 table,
 table tr {
   width: 100%;
@@ -9,15 +18,11 @@ table tr {
   cursor: pointer;
 }
 .account {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0;
 }
 .account-ctnr {
-  display: flex;
-  flex-direction: column;
   width: 80%;
   height: 40%;
   background-color: #005834;
@@ -66,6 +71,10 @@ table th {
   overflow: hidden;
   animation: 0.4s ease-in-out forwards openCollapse;
 }
+.edit-transaction,
+table td {
+  animation: 0.5s ease-in-out openCollapse;
+}
 @keyframes openCollapse {
   from {
     max-height: 0;
@@ -87,28 +96,18 @@ table th {
   }
 }
 table {
-  table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 6px;
-    padding: 4px;
-    margin-top: 20px;
-    border-radius: 5px;
-    overflow-x: auto; /* Ajoutez un défilement horizontal en cas de contenu trop large */
-  }
-}
-table th {
-  padding: 7px;
-  color: #0a0000;
+  border-collapse: separate;
+  border-spacing: 6px;
+  padding: 4px;
+  margin-top: 20px;
+  overflow-x: auto;
 }
 table td {
   text-align: center;
   padding: 7px;
   background: #34dba1;
   color: #fafafa;
-  border-radius: 5px;
   margin: 0;
-  animation: 0.5s ease-in-out openCollapse;
 }
 .details {
   width: 50px;
@@ -123,45 +122,36 @@ table td {
 }
 .edit-transaction {
   background-color: #34dba1;
-  animation: 0.5s ease-in-out openCollapse;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-
 .edit-transaction h4 {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-
 .transac-info {
   margin-left: 10px;
 }
-
 .transac-container {
   display: flex;
   flex-direction: row;
   align-items: baseline;
 }
-
-/* Style du tableau sur les appareils mobiles */
 @media all and (max-width: 485px) {
   table {
     display: block;
     overflow-x: auto;
   }
-
-  table th,
-  table td {
+  table td,
+  table th {
     font-size: 12px;
     padding: 5px;
   }
-
   .details-td .details img {
     width: 15px;
     height: 15px;
   }
-
   .arrow-right {
     width: 30px;
     height: 30px;
@@ -169,7 +159,6 @@ table td {
     right: 40px;
     top: 46px;
   }
-
   .account-balance {
     font-size: 20px;
   }
