@@ -2,6 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { makeApiRequest } from "../service/callApi";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -42,6 +46,10 @@ const SignUp = () => {
       console.log("Tout est bon !");
       try {
         await makeApiRequest("signUp", null, formValues);
+
+        setTimeout(() => {
+          MySwal.fire("Félicitations!", "Compte crée avec succés!", "success");
+        }, 1500);
         navigate("/");
       } catch (error) {
         console.error("Error during sign-up:", error);
