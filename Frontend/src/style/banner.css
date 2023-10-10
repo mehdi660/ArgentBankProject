@@ -24,8 +24,7 @@
 
 @media all and (max-width: 800px) {
   .text-bnr {
-    width: 100%;
-    height: 50%;
+    display: none;
   }
 
   .text-bnr-container {
@@ -38,5 +37,11 @@
 
   .text-bnr p {
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .banner-img {
+    object-fit: cover;
   }
 }

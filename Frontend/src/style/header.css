@@ -74,7 +74,6 @@
   text-decoration: none;
   display: flex;
   color: #000;
-  margin-right: 20px;
   justify-content: space-between;
   align-items: center;
 }
@@ -117,7 +116,7 @@
     padding-bottom: 20px;
   }
   .navigation a {
-    font-size: 13px;
+    font-size: 10px;
   }
   .Btn {
     width: 25px;
