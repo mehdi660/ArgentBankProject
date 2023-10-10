@@ -2,9 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const signInSlice = createSlice({
   name: "signIn",
-  initialState: {
-    token: "",
-  },
+  initialState: {},
   reducers: {
     setSignInData: (state, action) => {
       state.token = action.payload.response.body.token;
