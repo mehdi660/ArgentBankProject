@@ -23,7 +23,7 @@ paths:
         "500":
           description: Internal Server Error
 
-  /account/{accountId}/transaction:
+  /account/transactions/{transactionId}:
     get:
       summary: Get transaction
       description: Get user transactions from their account
@@ -37,15 +37,15 @@ paths:
           type: integer
       responses:
         "200":
-          description: Account successfully retrieved
+          description: Transaction successfully retrieved
         "400":
           description: Unauthorized to get transaction
         "404": 
-          description: Account not available or not found 
+          description: Transaction not available or not found 
         "500":
           description: Internal Server Error
 
-  /transaction/{transactionId}:
+  /transactions/{transactionId}:
     put:
       summary: Modify transaction category and note
       description: Modify both the category and note of a specific transaction on the user account
