@@ -49,12 +49,12 @@ const SignUp = () => {
 
         setTimeout(() => {
           MySwal.fire(
-            "Félicitations!",
-            "Compte crée avec succés, vous pouvez maintenant vous connecter avec vos iddentifiants.",
+            "Bienvenu chez ArgentBank!",
+            "Vous pouvez maintenant vous connecter avec vos identifiants.",
             "success"
           );
         }, 1500);
-        navigate("/");
+        navigate("/login");
       } catch (error) {
         console.error("Error during sign-up:", error);
       }
