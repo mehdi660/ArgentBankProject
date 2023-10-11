@@ -48,7 +48,11 @@ const SignUp = () => {
         await makeApiRequest("signUp", null, formValues);
 
         setTimeout(() => {
-          MySwal.fire("Félicitations!", "Compte crée avec succés!", "success");
+          MySwal.fire(
+            "Félicitations!",
+            "Compte crée avec succés, vous pouvez maintenant vous connecter avec vos iddentifiants.",
+            "success"
+          );
         }, 1500);
         navigate("/");
       } catch (error) {

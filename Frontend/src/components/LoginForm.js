@@ -62,7 +62,7 @@ const LoginForm = () => {
             <h3>S'identifier</h3>
             <form onSubmit={handleSignIn}>
               <label className="center-left" htmlFor="email">
-                Nom d'utilisateur (email) :
+                Email :
               </label>
               <input
                 autoComplete="username"
