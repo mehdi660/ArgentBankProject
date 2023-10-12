@@ -38,10 +38,13 @@
   .text-bnr p {
     font-size: 14px;
   }
+  .banner-img {
+    content: url("../assets/img/bank-tree800.jpeg");
+  }
 }
 
-@media only screen and (max-width: 425px) {
+@media all and (max-width: 500px) {
   .banner-img {
-    object-fit: cover;
+    content: url("../assets/img/bank-tree500.jpeg");
   }
 }

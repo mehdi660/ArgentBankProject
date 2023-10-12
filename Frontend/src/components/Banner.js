@@ -1,11 +1,11 @@
 import React from "react";
-import banner from "../assets/img/bank-treee.jpeg";
+import banner1300 from "../assets/img/bank-tree1300.jpeg";
 
 const Banner = () => {
   return (
     <main>
       <div className="banner">
-        <img className="banner-img" src={banner} alt="Banniére du site" />
+        <img className="banner-img" src={banner1300} alt="Banniére du site" />
         <div className="text-bnr-container">
           <div className="text-bnr">
             <h2>
