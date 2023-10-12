@@ -28,7 +28,6 @@ const Header = () => {
     if (isConnected) {
       localStorage.removeItem("token");
       console.log("Token removed!");
-      // Rediriger l'user vers la page d'accueil
       window.location.href = "/login";
     }
   };

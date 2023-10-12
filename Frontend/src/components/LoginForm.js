@@ -6,7 +6,7 @@ import { setSignInData } from "../feature/SignIn";
 import { makeApiRequest } from "../service/callApi.js";
 
 const LoginForm = () => {
-  const [username, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -14,22 +14,19 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Chargement du state de la checkbox dans le localstorage
+    // Chargement du state de la checkbox depuis le localStorage
     const savedCheckbox = localStorage.getItem("rememberMe");
     if (savedCheckbox) {
       setCheckbox(JSON.parse(savedCheckbox));
     }
   }, []);
 
-  const handleCheckbox = () => {
-    const newCheckboxState = !checkbox;
-    setCheckbox(newCheckboxState);
-
-    // Sauvegarde du state de la checkbox dans le localstorage
-    localStorage.setItem("rememberMe", JSON.stringify(newCheckboxState));
+  const handleCheckboxChange = () => {
+    setCheckbox(!checkbox);
+    localStorage.setItem("rememberMe", JSON.stringify(!checkbox));
   };
 
-  const handleSignIn = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -44,71 +41,59 @@ const LoginForm = () => {
         dispatch(setSignInData({ response }));
         navigate("/profile");
       } else {
-        setErrorMessage("Nom d'utilisateur ou mot de passe incorrect."); // Set error message
+        setErrorMessage("Nom d'utilisateur ou mot de passe incorrect.");
       }
     } catch (error) {
-      console.error("Error during sign-in:", error);
-      setErrorMessage("Une erreur s'est produite lors de la connexion."); // Set error message
+      console.error("Erreur lors de la connexion :", error);
+      setErrorMessage("Une erreur s'est produite lors de la connexion.");
     }
   };
 
   return (
     <main className="login">
       <div className="blur-container">
-        {" "}
         <section className="modal-form">
           <div className="form-ctnr">
             <img src={sign} alt="sign in" />
             <h3>S'identifier</h3>
-            <form onSubmit={handleSignIn}>
-              <label className="center-left" htmlFor="email">
-                Email :
-              </label>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="email">Email :</label>
               <input
                 autoComplete="username"
-                value={username}
                 type="email"
                 className="email"
                 size="30"
                 required
-                onChange={({ target }) => setUserName(target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
-              <label className="centerLeft" htmlFor="password">
-                Mot de passe :
-              </label>
+              <label htmlFor="password">Mot de passe :</label>
               <input
                 autoComplete="password"
-                value={password}
                 type="password"
                 className="password"
                 name="password"
                 required
-                onChange={({ target }) => setPassword(target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
 
               <div className="checkbox">
                 <input
-                  checked={checkbox}
-                  onChange={handleCheckbox}
                   type="checkbox"
                   className="checkbox"
-                  name="checkbox"
+                  checked={checkbox}
+                  onChange={handleCheckboxChange}
                 />
                 <label htmlFor="checkbox">Souviens-toi de moi</label>
               </div>
-              <input
-                id="submit-form"
-                className="submit"
-                type="submit"
-                value="S'identifier"
-              ></input>
+              <input className="submit" type="submit" value="S'identifier" />
               <NavLink to="/signup">
                 <input
-                  id="create"
                   className="submit"
                   type="submit"
                   value="Créer un compte"
-                ></input>
+                />
               </NavLink>
             </form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
