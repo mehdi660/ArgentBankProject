@@ -17,11 +17,14 @@ const Header = () => {
           setUserData(data.body.userName);
         }
       } catch (error) {
-        console.error("Error fetching user data:", error); // ! supprimez le token
+        console.error("Error fetching user data:", error);
       }
     };
 
-    fetchUserData();
+    // verification si le token existe avant d'effectuer la requête
+    if (isConnected) {
+      fetchUserData();
+    }
   }, [isConnected, token]);
 
   const handleLogout = () => {
