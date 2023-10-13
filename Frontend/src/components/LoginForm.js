@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import sign from "../assets/img/icons8-nom-24.png";
+import sign from "../assets/img/icons8-nom-24w.webp";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setSignInData } from "../feature/SignIn";

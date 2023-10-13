@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/img/argentBankLogo.png";
-import sign from "../assets/img/icons8-nom-24.png";
+import sign from "../assets/img/icons8-nom-24w.webp";
 import { makeApiRequest } from "../service/callApi";
 
 const Header = () => {

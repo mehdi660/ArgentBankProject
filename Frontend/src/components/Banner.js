@@ -1,11 +1,16 @@
 import React from "react";
-import banner1300 from "../assets/img/bank-tree1300.jpeg";
+import banner1300 from "../assets/img/bank-tree1300w.webp";
 
 const Banner = () => {
   return (
     <main>
       <div className="banner">
-        <img className="banner-img" src={banner1300} alt="Banniére du site" />
+        <img
+          className="banner-img"
+          src={banner1300}
+          alt="Banniére du site"
+          rel="preload"
+        />
         <div className="text-bnr-container">
           <div className="text-bnr">
             <h2>

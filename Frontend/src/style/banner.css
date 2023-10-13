@@ -39,12 +39,12 @@
     font-size: 14px;
   }
   .banner-img {
-    content: url("../assets/img/bank-tree800.jpeg");
+    content: url("../assets/img/bank-tree800w.webp");
   }
 }
 
 @media all and (max-width: 500px) {
   .banner-img {
-    content: url("../assets/img/bank-tree500.jpeg");
+    content: url("../assets/img/bank-tree500w.webp");
   }
 }

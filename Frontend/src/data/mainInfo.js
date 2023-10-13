@@ -1,6 +1,6 @@
-import chat from "../assets/img/icon-chat.png";
-import money from "../assets/img/icon-money.png";
-import security from "../assets/img/icon-security.png";
+import chat from "../assets/img/icon-chatw.webp";
+import money from "../assets/img/icon-moneyw.webp";
+import security from "../assets/img/icon-securityw.webp";
 
 const data = [
   {

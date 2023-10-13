@@ -70,6 +70,7 @@ const SignUp = () => {
             <form onSubmit={handleSignUp}>
               <label htmlFor="email">Email: </label>
               <input
+                id="email"
                 value={formValues.email}
                 type="email"
                 className="email"
@@ -80,6 +81,7 @@ const SignUp = () => {
 
               <label htmlFor="prenom">Prénom: </label>
               <input
+                id="prenom"
                 value={formValues.firstName}
                 type="text"
                 name="firstName"
@@ -90,6 +92,7 @@ const SignUp = () => {
 
               <label htmlFor="famille">Nom de famille: </label>
               <input
+                id="famille"
                 value={formValues.lastName}
                 type="text"
                 name="lastName"
@@ -100,6 +103,7 @@ const SignUp = () => {
 
               <label htmlFor="userName">Username: </label>
               <input
+                id="userName"
                 value={formValues.userName}
                 type="text"
                 name="userName"
@@ -110,6 +114,7 @@ const SignUp = () => {
 
               <label htmlFor="password">Mot de passe :</label>
               <input
+                id="password"
                 value={formValues.password}
                 type="password"
                 name="password"

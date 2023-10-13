@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiEdit2 } from "react-icons/fi";
-import arrow from "../assets/img/arrow-acnt.png";
+import arrow from "../assets/img/arrow-acntw.webp";
 import transactionsData from "../data/transaction";
 
 const Account = ({ info }) => {

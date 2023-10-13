@@ -5,11 +5,11 @@ import Footer from "../components/Footer";
 
 const SignUp = () => {
   return (
-    <div>
+    <>
       <Header />
       <SignUpForm />
       <Footer />
-    </div>
+    </>
   );
 };
 
