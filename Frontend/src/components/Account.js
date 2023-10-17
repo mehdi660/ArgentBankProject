@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiEdit2 } from "react-icons/fi";
+// import { FiEdit2 } from "react-icons/fi";
 import arrow from "../assets/img/arrow-acntw.webp";
 import transactionsData from "../data/transaction";
 
@@ -98,7 +98,7 @@ const TransactionDetail = ({ title, content }) => (
   <div className="transac-container">
     <h4>{title}: </h4>
     <span className="transac-info">{content}</span>
-    <FiEdit2 className="edit-btn" />
+    {/* <FiEdit2 className="edit-btn" /> */}
   </div>
 );
 

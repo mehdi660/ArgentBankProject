@@ -23,7 +23,7 @@ paths:
         "500":
           description: Internal Server Error
 
-  /account/transactions/{transactionId}:
+  /account/{accountId}/transactions:
     get:
       summary: Get transaction
       description: Get user transactions from their account
