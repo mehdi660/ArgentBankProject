@@ -93,6 +93,12 @@ paths:
               description:
                 type: string
                 description: "Transaction description."
+              category: 
+                type: string
+                description: "Transaction category."
+              note: 
+                type: string
+                description: "Additional notes about the transaction."
             required:
               - accountId
               - amount
