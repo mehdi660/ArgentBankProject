@@ -65,8 +65,16 @@ paths:
           description: "Transaction details retrieved successfully."
           schema:
             $ref: '#/definitions/SimpleTransactionResponse'
+        "400":
+          description: "Bad request."
+        "401":
+          description: "Unauthorized."
+        "403":
+          description: "Forbidden."
         "404":
-          description: "Transaction not found."
+          description: "Transactions not available or not found."
+        "500":
+          description: "Internal Server Error."
 
     put:
       summary: "Update a transaction"
@@ -93,16 +101,20 @@ paths:
               description:
                 type: string
                 description: "Transaction description."
+              date: 
+                type: string
+                description: "Date of the transaction"  
               category: 
                 type: string
-                description: "Transaction category."
+                description: "Transaction category. (optional)"
               note: 
                 type: string
-                description: "Additional notes about the transaction."
+                description: "Additional notes about the transaction. (optional)"
             required:
               - accountId
               - amount
               - description
+              - date
         - in: header
           name: Authorization
           description: "Attach Bearer JWT token"
@@ -115,8 +127,14 @@ paths:
           description: "Transaction updated successfully."
         "400":
           description: "Bad request."
+        "401":
+          description: "Unauthorized."
+        "403":
+          description: "Forbidden."
         "404":
-          description: "Transaction not found."
+          description: "Transactions not available or not found."
+        "500":
+          description: "Internal Server Error."
 
 definitions:
   GetTransactionsResponse:
