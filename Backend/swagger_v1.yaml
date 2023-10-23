@@ -92,18 +92,6 @@ paths:
           schema:
             type: object
             properties:
-              accountId:
-                type: string
-                description: "ID of the account related to the transaction."
-              amount:
-                type: number
-                description: "Transaction amount."
-              description:
-                type: string
-                description: "Transaction description."
-              date: 
-                type: string
-                description: "Date of the transaction"  
               category: 
                 type: string
                 description: "Transaction category. (optional)"
